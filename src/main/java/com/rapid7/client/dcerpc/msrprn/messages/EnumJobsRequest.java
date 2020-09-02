@@ -18,20 +18,26 @@ public class EnumJobsRequest extends RequestCall<EnumJobsResponse> {
 	private byte[] handle;
 
 	private long length;
+
+	private int offset;
+
+	private int count;
 	
-	public EnumJobsRequest(byte[] handle, long length) {
+	public EnumJobsRequest(byte[] handle, long length, int offset, int count) {
 		super(OPNUM);
 		this.handle = handle;
 		this.length = length;
+		this.offset = offset;
+		this.count = count;
 	}
 	
 	public void marshal(PacketOutput packetOut) throws IOException {
 		// PRINTER_HANDLE hPrinter
 		packetOut.write(handle);
 		// DWORD FirstJob,
-		packetOut.writeInt(0);
+		packetOut.writeInt(offset);
 		// DWORD NoJobs
-		packetOut.writeInt(0xffffffff);
+		packetOut.writeInt(count);
 		// DWORD Level,
 		packetOut.writeInt(JOB_INFO_LEVEL_1);
 

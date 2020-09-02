@@ -88,7 +88,7 @@ public class JobInfo1 {
 		return status;
 	}
 
-	int getId() {
+	public int getId() {
 		return id;
 	}
 
@@ -116,7 +116,7 @@ public class JobInfo1 {
 		return userName;
 	}
 
-	String getDocument() {
+	public String getDocument() {
 		return document;
 	}
 
