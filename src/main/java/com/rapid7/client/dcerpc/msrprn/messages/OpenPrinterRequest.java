@@ -47,7 +47,6 @@ public class OpenPrinterRequest extends RequestCall<OpenPrinterResponse> {
 		packetOut.writeReferentID();
 		packetOut.writeMarshallable(name);
 		packetOut.align(Alignment.FOUR);
-		//   [out] PRINTER_HANDLE* pHandle,
 		//   [in, string, unique] wchar_t* pDatatype,
 		packetOut.writeNull();
 		//   [in] DEVMODE_CONTAINER* pDevModeContainer,
@@ -59,7 +58,6 @@ public class OpenPrinterRequest extends RequestCall<OpenPrinterResponse> {
 
 	@Override
 	public OpenPrinterResponse getResponseObject() {
-		// TODO Auto-generated method stub
 		return new OpenPrinterResponse();
 	}
 

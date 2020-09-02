@@ -22,8 +22,9 @@ public class EnumJobsResponse extends RequestResponse {
 
 	@Override
 	public void unmarshalResponse(PacketInput packetIn) throws IOException {
-		// [in, out, unique, size_is(cbBuf), disable_consistency_check] 
 		byte[] data = null;
+
+		// [in, out, unique, size_is(cbBuf), disable_consistency_check] 
 		if (packetIn.readReferentID() != 0) {
 			int length = packetIn.readInt();
 			data = new byte[length];

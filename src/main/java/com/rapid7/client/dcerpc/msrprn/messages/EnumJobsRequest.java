@@ -35,44 +35,22 @@ public class EnumJobsRequest extends RequestCall<EnumJobsResponse> {
 		// DWORD Level,
 		packetOut.writeInt(JOB_INFO_LEVEL_1);
 
+		// [in, out, unique, size_is(cbBuf), disable_consistency_check] BYTE* pJob
 		if (length > 0) {
-			// [in, out, unique, size_is(cbBuf), disable_consistency_check] BYTE* pJob
 	        packetOut.writeReferentID();
 	        packetOut.writeInt(length);
 	        packetOut.pad(length);
-	        // Alignment: 4 - Already aligned
-	        
-	        
-	        //packetOut.writeEmptyCVArray((int) length);
-	        
-	       
-			//packetOut.writeInt(44);
+	        packetOut.align(Alignment.FOUR);
 		} else {
 			packetOut.writeNull();
 		}
 		
         // [in] DWORD cbBuf,
         packetOut.writeInt(length);
-        
-        //packetOut.pad(length);
-        /*
-        // [out] DWORD* pcbNeeded,
-        // Alignment: 4 - Already aligned
-        packetOut.writeReferentID();
-        // Alignment: 4 - Already aligned
-        packetOut.writeInt(0);
-        
-        // [out] DWORD* pcReturned
-        // Alignment: 4 - Already aligned
-        packetOut.writeReferentID();
-        // Alignment: 4 - Already aligned
-        packetOut.writeInt(0);
-        */
 	}
 	
 	@Override
 	public EnumJobsResponse getResponseObject() {
-		// TODO Auto-generated method stub
 		return new EnumJobsResponse();
 	}
 

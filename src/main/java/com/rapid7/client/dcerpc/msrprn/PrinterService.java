@@ -15,7 +15,7 @@ public class PrinterService extends Service {
 
 	private static final int MAX_RETRY_COUNT = 256;
 	
-	protected PrinterService(RPCTransport transport) {
+	public PrinterService(RPCTransport transport) {
 		super(transport);
 	}
 	
